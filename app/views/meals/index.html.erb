@@ -1,5 +1,5 @@
 <% if current_user %>
-
+  <%= Time.zone %>
   <%= link_to 'New Meal', new_meal_path %>
   <p></p>
   <h5>Today's total calories: <%= @todays_meals.sum(:calories) %></h5>
