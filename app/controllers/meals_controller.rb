@@ -7,13 +7,12 @@ class MealsController < ApplicationController
   def index
     #@meals = Meal.all
     @meals = current_user.meals
-    @todays_meals = current_user.meals.today
+    @todays_meals = current_user.meals.where("start_time > ? AND start_time < ?", Time.now.beginning_of_day, Time.now.end_of_day)
     #@previous_meals = current_user.meals.where("start_time < ?", Time.now.beginning_of_day)
   end
 
   def month
     @meals = current_user.meals
-    @todays_meals = current_user.meals.today
   end
 
   # GET /meals/1
