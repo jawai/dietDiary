@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @meal.name %>
+</p>
+
+<p>
+  <strong>Meal Items:</strong>
+  <%= @meal.meal_items %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @meal.calories %>
+</p>
+
+<p>
+  <strong>Mood:</strong>
+  <%= @meal.mood %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @meal.start_time %>
+</p>
+
+<%= link_to 'Edit', edit_meal_path(@meal) %> |
+<%= link_to 'Back', meals_path %>

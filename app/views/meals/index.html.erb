@@ -1,0 +1,30 @@
+<% if current_user %>
+
+  <%= link_to 'New Meal', new_meal_path %>
+  <p></p>
+  <h5>Today's total calories: <%= @todays_meals.sum(:calories) %></h5>
+  <p></p>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-xl">
+      <%= calendar number_of_days: 1, events: @meals do |date, meals| %>
+      <%= date %>
+
+        <% meals.each do |meal| %>
+          <div>
+            <%= link_to "#{meal.name}:", meal %>
+            <%= meal.calories %> cals
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+<!-- <%= Meal.where("start_time >= ?", Time.zone.now.beginning_of_day).sum(:calories) %>
+<%= Meal.where("start_time >= ?", DateTime.now.to_date).sum(:calories) %>
+<%= Meal.where("date_trunc('day', start_time) = ?", Date.today).sum(:calories) %>
+<%= Meal.order("DATE(start_time)").group("DATE(start_time)").sum(:calories) %>
+<%= Meal.group("DATE(start_time)").sum(:calories) %>
+-->

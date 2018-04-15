@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module DietDiary
   class Application < Rails::Application
+    config.time_zone = 'Eastern Time (US & Canada)'
     config.active_job.queue_adapter = :sidekiq
     config.application_name = Rails.application.class.parent_name
     # Initialize configuration defaults for originally generated Rails version.

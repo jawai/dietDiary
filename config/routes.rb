@@ -1,6 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :meals
+  get '/month', to: 'meals#month'
+
   namespace :admin do
     resources :users
     resources :announcements
@@ -16,6 +19,10 @@ Rails.application.routes.draw do
   resources :announcements, only: [:index]
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
+  end
+
+  authenticated :user do #for users signed in, this is the root route
+    root 'meals#index', as: :authenticated_root
   end
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
