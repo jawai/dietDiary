@@ -11,32 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :meal_name %>
+    <%= form.text_field :name, id: :meal_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :meal_items %>
-    <%= form.text_area :meal_items, id: :meal_meal_items %>
+    <%= form.text_area :meal_items, id: :meal_meal_items, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :calories %>
-    <%= form.number_field :calories, id: :meal_calories %>
+    <%= form.number_field :calories, id: :meal_calories, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :mood %>
-    <%= form.text_area :mood, id: :meal_mood %>
+    <%= form.text_area :mood, id: :meal_mood, class: "form-control"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :start_time %>
-    <%= form.datetime_select :start_time, id: :meal_start_time %>
+    <%= form.datetime_select :start_time, id: :meal_start_time, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit 'Submit', class:'btn btn-outline-primary btn-lg' %>
+  <p></p>
 <% end %>

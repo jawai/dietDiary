@@ -7,6 +7,8 @@ class Meal < ApplicationRecord
     where("start_time > ?", Time.now.beginning_of_day)
   }
 
+
+
   #Meal.group("DATE(start_time)").sum(:calories)
   #Meal.order("DATE(start_time)").group("DATE(start_time)").sum(:calories)
 
